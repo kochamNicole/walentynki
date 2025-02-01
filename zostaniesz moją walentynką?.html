@@ -1,1 +1,99 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walentynka dla Nicole</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        #question {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        #yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #no {
+            background-color: #f44336;
+            color: white;
+        }
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #result {
+            display: none;
+            font-size: 30px;
+            color: red;
+            margin-top: 20px;
+        }
+        #image {
+            display: none;
+            width: 100%;
+            max-width: 400px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="question">Nicole, zostaniesz moją walentynką?</div>
+        <button id="yes" class="button" onclick="acceptLove()">Tak</button>
+        <button id="no" class="button" onclick="declineLove()">Nie</button>
+        <div id="result">Kocham Cię Nicole &lt;3</div>
+        <img id="image" src="" alt="Walentynkowy obrazek">
+    </div>
+
+    <script>
+        let noButton = document.getElementById("no");
+        let yesButton = document.getElementById("yes");
+        let noClickCount = 0;
+
+        function declineLove() {
+            noClickCount++;
+            let newSize = Math.max(20, 100 - noClickCount * 15);
+            let yesSize = 20 + noClickCount * 10;
+            
+            noButton.style.fontSize = newSize + "px";
+            noButton.style.padding = (newSize / 2) + "px";
+            
+            yesButton.style.fontSize = yesSize + "px";
+            yesButton.style.padding = (yesSize / 2) + "px";
+            
+            if (noClickCount >= 5) {
+                noButton.style.display = "none";
+                yesButton.style.fontSize = "50px";
+                yesButton.style.padding = "30px";
+                yesButton.style.width = "100%";
+                yesButton.style.height = "100vh";
+            }
+        }
+
+        function acceptLove() {
+            document.getElementById("question").style.display = "none";
+            document.getElementById("yes").style.display = "none";
+            document.getElementById("no").style.display = "none";
+            document.getElementById("result").style.display = "block";
+            document.getElementById("image").style.display = "block";
+            document.getElementById("image").src = "TU_WSTAW_SWÓJ_LINK_DO_OBRAZU";
+        }
+    </script>
+</body>
+</html>
 
