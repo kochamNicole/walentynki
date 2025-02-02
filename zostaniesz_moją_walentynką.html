@@ -75,10 +75,14 @@
             if (noClickCount === 1) {
                 noButton.innerText = "Nie?";
             } else if (noClickCount === 2) {
-                noButton.innerText = "Jak nie";
+                noButton.innerText = "Napewno?";
             } else if (noClickCount === 3) {
-                noButton.innerText = "CO TO ZNACZY NIE";
-            } else if (noClickCount >= 4) {
+                noButton.innerText = "Jesteś w 100% pewna?";
+            } else if (noClickCount === 4) {
+                noButton.innerText = "Zastanów się jeszcze";
+            } else if (noClickCount === 5) {
+                noButton.innerText = "Nie zostawaisz mi wyboru";
+            } else if (noClickCount >= 6) {
                 noButton.style.display = "none";
                 yesButton.style.fontSize = "50px";
                 yesButton.style.padding = "30px";
