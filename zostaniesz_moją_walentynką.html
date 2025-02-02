@@ -1,8 +1,8 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="pl">
 <head>
-<meta charset="utf-8">
-<meta name="description" content="walentynka">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Walentynka dla Nicole</title>
     <style>
         body {
@@ -56,7 +56,7 @@
         <div id="question">Nicole, zostaniesz moją walentynką?</div>
         <button id="yes" class="button" onclick="acceptLove()">Tak</button>
         <button id="no" class="button" onclick="declineLove()">Nie</button>
-        <div id="result">JUPIIIIII Kocham Cię Nicole <3 </div>
+        <div id="result">Kocham Cię Nicole &lt;3</div>
         <img id="image" src="" alt="Walentynkowy obrazek">
     </div>
 
@@ -64,23 +64,25 @@
         let noButton = document.getElementById("no");
         let yesButton = document.getElementById("yes");
         let noClickCount = 0;
-
+        
         function declineLove() {
             noClickCount++;
-            let newSize = Math.max(20, 100 - noClickCount * 15);
             let yesSize = 20 + noClickCount * 10;
-            
-            noButton.style.fontSize = newSize + "px";
-            noButton.style.padding = (newSize / 2) + "px";
             
             yesButton.style.fontSize = yesSize + "px";
             yesButton.style.padding = (yesSize / 2) + "px";
             
-            if (noClickCount >= 5) {
+            if (noClickCount === 1) {
+                noButton.innerText = "Nie?";
+            } else if (noClickCount === 2) {
+                noButton.innerText = "Jak nie";
+            } else if (noClickCount === 3) {
+                noButton.innerText = "CO TO ZNACZY NIE";
+            } else if (noClickCount >= 4) {
                 noButton.style.display = "none";
                 yesButton.style.fontSize = "50px";
                 yesButton.style.padding = "30px";
-                yesButton.style.width = "100%";
+                yesButton.style.width = "100vw";
                 yesButton.style.height = "100vh";
             }
         }
@@ -91,9 +93,8 @@
             document.getElementById("no").style.display = "none";
             document.getElementById("result").style.display = "block";
             document.getElementById("image").style.display = "block";
-            document.getElementById("image").src = "https://3.allegroimg.com/s512/039aed/fa3f85b64349819ed508ba30d953/Naklejka-na-sciane-SERCE-serduszko-12-cm";
+            document.getElementById("image").src = "TU_WSTAW_SWÓJ_LINK_DO_OBRAZU";
         }
     </script>
 </body>
 </html>
-
